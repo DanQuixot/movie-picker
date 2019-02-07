@@ -1,0 +1,6 @@
+body, html {
+  font-family: 'Montserrat', sans-serif;
+}
+#poster {
+  max-height: 430px;
+}
