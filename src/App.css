@@ -4,3 +4,6 @@ body, html {
 #poster {
   max-height: 430px;
 }
+.my-thumbs {
+  font-size: 2rem;
+}
