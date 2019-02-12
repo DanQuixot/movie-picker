@@ -20,7 +20,8 @@ class Film extends Component {
       plot: ''
     };
   };
-  componentWillMount() {
+
+  componentDidMount() {
     // Generate random page number
     const random = Math.floor(Math.random() * 500);
     //TMDB initial fetch

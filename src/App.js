@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
-import Film from './components/Film';
+import React from 'react';
+import FilmFetch from './components/FilmFetch';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="container mt-5">
-          <Film />
-        </div>
+function App() {
+  return (
+    <div className="App container mt-5">
+      <FilmFetch />
 
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
