@@ -1,19 +1,19 @@
 import React from 'react';
 
-function FilmLayout(props) {
+function FilmCard(props) {
   return (
     <div className="container shadow-lg mt-2 p-4 bg-light border border-light rounded" >
       <div className="container">
         <div className="row">
-          <div className="col-lg-6">
-            <img src={props.filmData.poster} alt="poster" className="mx-auto d-block my-3" id="poster" />
+          <div className="col-lg-6 justify-content-center align-items-center d-flex">
+            <img src={props.filmData.poster} alt="poster" id="poster" />
           </div>
           <div className="col-lg-6">
-            <h2 className="text-center my-3"><b>{props.filmData.title} ({props.filmData.year})</b></h2>
+            <h2 className="text-center my-3 my-title"><b>{props.filmData.title} ({props.filmData.year})</b></h2>
             <p><b>Director:</b> {props.filmData.director}</p>
             <p><b>Genre:</b> {props.filmData.genre}</p>
-            <p><b>Actors:</b> {props.filmData.actors}</p>
-            <p>"{props.filmData.plot}"</p>
+            <p className="actors-paragraph"><b>Actors:</b> {props.filmData.actors}</p>
+            <p className="plot-paragraph"><b>Plot: </b>"{props.filmData.plot}"</p>
             <div className="container shadow-sm mt-5 bg-light border border-light rounded">
               <div className="row justify-content-around">
                 <div className="col-12 col-md-6 col-lg-4">
@@ -49,5 +49,5 @@ function FilmLayout(props) {
   )
 }
 
-export default FilmLayout;
+export default FilmCard;
 

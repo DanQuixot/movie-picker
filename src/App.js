@@ -1,14 +1,15 @@
-import React from 'react';
-import FilmFetch from './components/FilmFetch';
+import React, { Component } from 'react';
 import './App.css';
+import Fetch from './components/fetch/Fetch';
 
-function App() {
-  return (
-    <div className="App container mt-5">
-      <FilmFetch />
-
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App container pt-5">
+        <Fetch />
+      </div>
+    )
+  }
 }
 
 export default App;
