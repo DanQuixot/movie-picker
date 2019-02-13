@@ -1,4 +1,5 @@
 import React from 'react';
+import loader from '../../img/loader.gif';
 
 function FilmCard(props) {
   return (
@@ -6,7 +7,18 @@ function FilmCard(props) {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 justify-content-center align-items-center d-flex">
-            <img src={props.filmData.poster} alt="poster" id="poster" />
+            {props.filmData.isLoading ?
+              <img
+                src={loader}
+                alt="poster"
+                id="poster"
+              /> :
+              <img
+                src={props.filmData.poster}
+                alt="poster"
+                id="poster"
+              />
+            }
           </div>
           <div className="col-lg-6">
             <h2 className="text-center my-3 my-title"><b>{props.filmData.title} ({props.filmData.year})</b></h2>

@@ -21,14 +21,16 @@ class RandomFetch extends Component {
       imdbID: '',
       boxOffice: '',
       plot: '',
-      tmdbID: ''
+      tmdbID: '',
+      isLoading: true
     }
   };
 
   /////////////////////////////Fetch random movie //////////////////////////////
   randomFetch = async () => {
+    this.setState({ isLoading: true });
     // Initial tmdb Fetch
-    let url = `https://api.themoviedb.org/3/discover/movie?api_key=e1c16f19acb1ba81e7eff26f92ed5a48&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${Math.floor(Math.random() * 500)}&release_date.gte=1996-01-01`;
+    let url = `https://api.themoviedb.org/3/discover/movie?api_key=e1c16f19acb1ba81e7eff26f92ed5a48&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${Math.floor(Math.random() * 500)}&release_date.gte=1996-01-01&vote_count.gte=47`;
     let apiCall = await fetch(url);
     let response = await apiCall.json();
     let random = Math.floor(Math.random() * 9)
@@ -41,11 +43,13 @@ class RandomFetch extends Component {
 
   ///////////////////// Fetch Similar movie ////////////////////
   similarFetch = async () => {
+    this.setState({ isLoading: true });
     // Initial tmdb Fetch
     let url = `https://api.themoviedb.org/3/movie/${this.state.tmdbID}/similar?api_key=e1c16f19acb1ba81e7eff26f92ed5a48&language=en-US&page=1`;
     let apiCall = await fetch(url);
     let response = await apiCall.json();
-    let random = Math.floor(Math.random() * 9)
+    let resultsArrayLength = response.results.length;
+    let random = Math.ceil(Math.random() * resultsArrayLength);
     let tmdbID = response.results[random].id;
     this.setState({ tmdbID: tmdbID });
 
@@ -84,8 +88,9 @@ class RandomFetch extends Component {
       rottenTomatoesRating: rottenTomatoesRating,
       imdbRating: response.imdbRating,
       boxOffice: response.BoxOffice,
-      plot: response.Plot
-    })
+      plot: response.Plot,
+      isLoading: false
+    });
     console.log(this.state)
   }
 
