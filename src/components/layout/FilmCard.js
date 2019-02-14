@@ -1,10 +1,8 @@
 import React from 'react';
 import loader from '../../img/loader.gif';
 
-
-
-
 function FilmCard(props) {
+
   return (
     <div className="container shadow-lg pt-2 pb-4 bg-light border border-light rounded mb-3" >
       <div className="container justify-content-center d-flex">
@@ -18,11 +16,13 @@ function FilmCard(props) {
               /> :
               <img
                 src={props.filmData.poster}
+                onError={(e) => e.target.src = 'http://wpmovies.scriptburn.com/wp-content/themes/wp_movies/images/noposter.jpg'}
                 alt="poster"
                 id="poster"
               />
             }
           </div>
+
           <div className="container d-lg-none">
             <div className="row mt-2 pb-2">
               <div className="col-12 d-flex justify-content-center">

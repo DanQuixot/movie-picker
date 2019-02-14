@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Buttons from '../layout/Buttons';
 import FilmCard from '../layout/FilmCard';
 
-
 class Fetch extends Component {
   constructor() {
     super();
@@ -22,7 +21,8 @@ class Fetch extends Component {
       boxOffice: '',
       plot: '',
       tmdbID: '',
-      isLoading: true
+      isLoading: true,
+      showErrorModal: false
     };
   };
 
