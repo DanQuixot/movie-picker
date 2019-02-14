@@ -48,12 +48,17 @@ class RandomFetch extends Component {
     let url = `https://api.themoviedb.org/3/movie/${this.state.tmdbID}/similar?api_key=e1c16f19acb1ba81e7eff26f92ed5a48&language=en-US&page=1`;
     let apiCall = await fetch(url);
     let response = await apiCall.json();
-    let resultsArrayLength = response.results.length;
-    let random = Math.ceil(Math.random() * resultsArrayLength);
-    let tmdbID = response.results[random].id;
-    this.setState({ tmdbID: tmdbID });
+    if (response.results.length > 0) {
+      let resultsArrayLength = response.results.length;
+      let random = Math.ceil(Math.random() * resultsArrayLength);
+      let tmdbID = response.results[random].id;
+      this.setState({ tmdbID: tmdbID });
 
-    await this.secondPartFetch();
+      await this.secondPartFetch();
+    } else {
+      this.randomFetch();
+    }
+
   }
 
   //////////// Second part of the Fetch /////////////////////////
@@ -91,7 +96,6 @@ class RandomFetch extends Component {
       plot: response.Plot,
       isLoading: false
     });
-    console.log(this.state)
   }
 
   ///////////////////// Fetch initial random Film /////////////////////////

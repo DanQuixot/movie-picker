@@ -1,10 +1,13 @@
 import React from 'react';
 import loader from '../../img/loader.gif';
 
+
+
+
 function FilmCard(props) {
   return (
-    <div className="container shadow-lg mt-2 p-4 bg-light border border-light rounded" >
-      <div className="container">
+    <div className="container shadow-lg pt-2 pb-4 bg-light border border-light rounded" >
+      <div className="container justify-content-center d-flex">
         <div className="row">
           <div className="col-lg-6 justify-content-center align-items-center d-flex">
             {props.filmData.isLoading ?
@@ -20,6 +23,7 @@ function FilmCard(props) {
               />
             }
           </div>
+
           <div className="col-lg-6">
             <h2 className="text-center my-3 my-title"><b>{props.filmData.title} ({props.filmData.year})</b></h2>
             <p><b>Director:</b> {props.filmData.director}</p>
