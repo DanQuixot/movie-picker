@@ -51,20 +51,20 @@ class Modal extends Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="About Modal"
         >
           <div className="container">
             <div className="row">
               <div className="col">
-                <h4 className="text-center"><strong>How to use</strong></h4>
+                <h4 className="text-center mb-4"><strong>How to use</strong></h4>
                 <div className="mt-2">
-                  <button className="btn btn-success px-5 py-1 m-2">
+                  <button className="btn btn-success px-4 py-0 m-2">
                     <i className="my-thumbs-modal far fa-thumbs-up"></i>
                   </button>
                   <span>- to fetch a Similar movie.</span><br />
                 </div>
                 <div className="mb-4">
-                  <button className="btn btn-danger px-5 py-1 m-2">
+                  <button className="btn btn-danger px-4 py-0 m-2">
                     <i className="my-thumbs-modal far fa-thumbs-down"></i>
                   </button>
                   <span>- to fetch a Random movie.</span><br />
